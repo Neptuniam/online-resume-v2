@@ -115,8 +115,8 @@ export default {
 <style scoped>
 .row > div {
     position: relative;
-    height: 300px;
-    padding: 10px 20px 80px 20px;
+    height: 240px;
+    padding: 10px 20px 60px 20px;
 }
 img {
     position: relative;
@@ -126,6 +126,8 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    /* border: 1px solid rgb(192, 187, 187); */
     border-radius: 4px;
 
     transition: all 0.2s ease-in-out;
@@ -142,7 +144,7 @@ img:hover {
 .project-title-row {
     position: absolute;
     left: 22.5px;
-    bottom: 40px;
+    bottom: 25px;
 
     width: calc(100% - 45px);
 }

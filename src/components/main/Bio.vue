@@ -5,7 +5,7 @@
         <div id="avatar">
             <img
                 class="full-width"
-                src="@/assets/img/backgrounds/1000038793.jpg"
+                src="/backgrounds/1000038793.jpg"
                 alt="My Avatar"
             />
         </div>

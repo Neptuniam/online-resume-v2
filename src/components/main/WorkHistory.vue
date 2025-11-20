@@ -43,7 +43,7 @@
                                 <div class="text-body">
                                     {{ job.stack }}
                                 </div>
-                                <div>
+                                <div class="text-body" style="margin-top: 15px">
                                     {{ readableDate(job.start_date) }} - {{ readableDate(job.end_date) }} ({{ getJobLenth(job) }})
                                 </div>
                             </div>
@@ -158,7 +158,7 @@ export default {
     height: 20px;
 
     background-color: white;
-    border: 4px solid lightblue;
+    border: 4px solid #45526e;
     border-radius: 50%;
 }
 

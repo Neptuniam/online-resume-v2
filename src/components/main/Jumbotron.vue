@@ -11,6 +11,14 @@
             </div>
 
             <div>
+                <router-link
+                    to="/resume"
+                    class="jumbotron-button"
+                >
+                    <i class="fas fa-file-invoice"></i>
+                    Resume
+                </router-link>
+
                 <a
                     class="jumbotron-button"
                     href="https://github.com/neptuniam"
@@ -20,13 +28,14 @@
                     Github
                 </a>
 
-                <router-link
-                    to="/resume"
+                <a
                     class="jumbotron-button"
+                    href="https://www.linkedin.com/in/liam-jones-35530b12b/"
+                    target="_blank"
                 >
-                    <i class="fas fa-file-invoice"></i>
-                    Resume
-                </router-link>
+                    <i class="fab fa-linkedin-in"></i>
+                    Linked-in
+                </a>
 
                 <a
                     class="jumbotron-button"
@@ -50,6 +59,7 @@ const QUOTE_BOARD_STRINGS = [
     'a professional Googler.',
     'hard working.',
     'dedicated.',
+    'a girl dad.',
     'creative.',
     'patient.',
     'adaptable.',
@@ -72,7 +82,7 @@ export default {
 
 <style scoped>
 .parallax-container {
-    background-image: url(@/assets/img/backgrounds/1000032737.jpg);
+    background-image: url(/backgrounds/1000032737.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -115,13 +125,15 @@ export default {
 
     background-image: linear-gradient(120deg, #a1c4fd 0, #c2e9fb 100%);
 
-    padding: 7.5px 15px;
+    padding: 10px 15px;
     border-radius: 4px;
-    margin: 0px 20px;
+    margin: 0px 15px;
 
     transition: all 0.2s ease-in-out;
 }
 .jumbotron-button:hover {
     color: #0056b3;
+
+    background-image: linear-gradient(20deg, #a1c4fd 0, #c2e9fb 100%);
 }
 </style>

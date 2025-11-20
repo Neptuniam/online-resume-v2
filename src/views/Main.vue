@@ -3,11 +3,13 @@
 
     <bio />
 
-    <work-history ref="workHistory" />
-
     <skills />
 
+    <work-history ref="workHistory" />
+
     <projects />
+
+    <page-footer />
 
     <!-- Contact me form -->
 
@@ -37,13 +39,16 @@ import WorkHistory from '../components/main/WorkHistory.vue';
 import Skills from '../components/main/Skills.vue';
 import Projects from '../components/main/Projects.vue';
 
+import PageFooter from '../components/main/PageFooter.vue';
+
 export default {
     components: {
         Jumbotron,
         Bio,
         WorkHistory,
         Skills,
-        Projects
+        Projects,
+        PageFooter
     },
 
     data() {
@@ -93,16 +98,21 @@ export default {
                           .find((_section) => scrollY >= this.getElementOffsetFromBottom(_section))
                     : Array.from(sections).find((_section) => scrollY < this.getElementOffsetFromTop(_section));
 
-            if (!!nextSection)
+            if (!!nextSection) {
                 nextSection.scrollIntoView({
                     behavior: 'smooth'
                 });
+            } else if (direction > 0) {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
     },
 
     mounted() {
         document.addEventListener('scroll', () => {
-            this.showUpArrow = window.scrollY >= window.innerHeight;
+            this.showUpArrow = window.scrollY >= window.innerHeight * 0.9;
             this.doBounce = window.scrollY <= 50;
         });
     }
@@ -115,7 +125,7 @@ export default {
 
     padding: 90px 0px;
 }
-.section:nth-child(even) {
+.section:nth-child(odd) {
     background-color: rgba(217, 217, 217, 0.4);
 }
 .section > div {
@@ -134,9 +144,6 @@ export default {
 .section-sub-header {
     font-size: 26px;
     text-align: center;
-}
-.section a {
-    color: rgb(65, 62, 62);
 }
 </style>
 <style scoped>

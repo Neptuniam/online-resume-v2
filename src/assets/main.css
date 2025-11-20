@@ -20,6 +20,14 @@ html {
     font-size: var(--text-body-size);
 }
 
+a {
+    color: rgb(65, 62, 62);
+    transition: all 0.2s ease-in-out;
+}
+a:hover {
+    color: rgb(37, 36, 36);
+}
+
 .text-center {
     text-align: center;
 }

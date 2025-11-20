@@ -1,13 +1,11 @@
 <template>
     <iframe
-        style="height: 100vh; width: 100vw"
-        src="@/assets/resumes/resume.pdf"
+        style="height: 100vh; width: 80vw; padding: 10vh 20vw"
+        src="/resumes/resume.pdf"
     ></iframe>
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router';
-
 export default {};
 </script>
 
