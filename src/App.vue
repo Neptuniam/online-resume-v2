@@ -1,28 +1,7 @@
 <template>
-    <!-- <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header> -->
-
     <RouterView />
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router';
-
-export default {
-    computed: {},
-
-    data() {
-        return {};
-    },
-
-    methods: {},
-
-    mounted() {},
-};
+import { RouterView } from 'vue-router';
 </script>

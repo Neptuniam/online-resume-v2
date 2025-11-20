@@ -2,27 +2,141 @@
     <jumbotron />
 
     <bio />
+
+    <work-history ref="workHistory" />
+
+    <div
+        v-show="showUpArrow"
+        class="scroll-arrow-indicator clickable noselect up-arrow"
+        @click="jumpTo(-1)"
+    >
+        <i class="fas fa-chevron-up" />
+    </div>
+
+    <div
+        class="scroll-arrow-indicator clickable noselect down-arrow"
+        @click="jumpTo(1)"
+    >
+        <i
+            class="fas fa-chevron-down"
+            :class="{ bounce: doBounce }"
+        />
+    </div>
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router';
 import Jumbotron from '../components/main/Jumbotron.vue';
 import Bio from '../components/main/Bio.vue';
+import WorkHistory from '../components/main/WorkHistory.vue';
 
 export default {
     components: {
         Jumbotron,
         Bio,
+        WorkHistory
     },
 
     data() {
-        return {};
+        return {
+            showUpArrow: false,
+            doBounce: true
+        };
     },
 
-    computed: {},
+    methods: {
+        getElementOffsetFromTop: function (el) {
+            return window.pageYOffset + el.getBoundingClientRect().top;
+        },
+        getElementOffsetFromBottom: function (el) {
+            return window.pageYOffset + el.getBoundingClientRect().bottom;
+        },
 
-    methods: {},
+        areViewingHistory: function () {
+            const scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            const el = document.getElementById('work-history');
+            const rect = el.getBoundingClientRect();
+            const top = this.getElementOffsetFromTop(el);
+            const bottom = top + rect.height;
+
+            return scrollY >= top && scrollY <= bottom;
+        },
+        jumpTo(direction) {
+            if (this.areViewingHistory()) {
+                if (direction < 0) {
+                    if (this.$refs.workHistory.inView < this.$refs.workHistory.workHistory.length - 1) {
+                        this.$refs.workHistory.inView++;
+                        return;
+                    }
+                } else if (this.$refs.workHistory.inView > 0) {
+                    this.$refs.workHistory.inView--;
+                    return;
+                }
+            }
+
+            const scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            const sections = document.getElementsByClassName('section');
+            const nextSection =
+                direction < 0
+                    ? Array.from(sections)
+                          .reverse()
+                          .find((_section) => scrollY >= this.getElementOffsetFromBottom(_section))
+                    : Array.from(sections).find((_section) => scrollY < this.getElementOffsetFromTop(_section));
+
+            if (!!nextSection)
+                nextSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+        }
+    },
+
+    mounted() {
+        document.addEventListener('scroll', () => {
+            this.showUpArrow = window.scrollY >= window.innerHeight;
+            this.doBounce = window.scrollY <= 50;
+        });
+    }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@keyframes bounceIn {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+.scroll-arrow-indicator {
+    position: fixed;
+    right: 10px;
+
+    font-size: 32px;
+
+    text-align: cente;
+
+    height: 40px;
+    width: 40px;
+
+    transition:
+        visibility 0.5s,
+        opacity 0.5s linear;
+}
+.up-arrow {
+    top: 10px;
+}
+.down-arrow {
+    bottom: 10px;
+}
+.bounce {
+    animation: bounceIn 2s infinite 2s;
+}
+</style>

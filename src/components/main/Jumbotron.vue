@@ -38,13 +38,6 @@
             </div>
         </div>
     </div>
-
-    <div
-        id="scroll-arrow-indicator"
-        :class="{ 'hide-arrow': hideArrowIndicator }"
-    >
-        <i class="fas fa-chevron-down"></i>
-    </div>
 </template>
 
 <script>
@@ -66,24 +59,12 @@ const QUOTE_BOARD_STRINGS = [
 ];
 
 export default {
-    computed: {},
-
-    data() {
-        return {
-            hideArrowIndicator: false
-        };
-    },
-
     mounted() {
         new Typed('#quote-board', {
             strings: QUOTE_BOARD_STRINGS,
             typeSpeed: 75,
             backSpeed: 50,
             backDelay: 2000
-        });
-
-        document.addEventListener('scroll', () => {
-            this.hideArrowIndicator = window.scrollY >= 50;
         });
     }
 };
@@ -142,48 +123,5 @@ export default {
 }
 .jumbotron-button:hover {
     color: #0056b3;
-}
-
-@keyframes bounceIn {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
-}
-#scroll-arrow-indicator {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-
-    font-size: 32px;
-
-    height: 75px;
-    width: 75px;
-
-    border: grey 1px 4px;
-    border-radius: 4px;
-
-    visibility: visible;
-    opacity: 1;
-
-    animation: bounceIn 2s infinite 2s;
-    transition:
-        visibility 0.5s,
-        opacity 0.5s linear;
-}
-#scroll-arrow-indicator.hide-arrow {
-    visibility: hidden !important;
-    opacity: 0 !important;
-    animation: none !important;
 }
 </style>
