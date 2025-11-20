@@ -14,7 +14,7 @@
                         <div class="job-company">
                             {{ job.company_short || job.company }}
                         </div>
-                        <div class="job-date">
+                        <div class="job-date ">
                             {{ readableDate(job.start_date) }} - {{ readableDate(job.end_date) }}
                         </div>
 
@@ -33,14 +33,14 @@
                         >
                             <div class="full-width">
                                 <img :src="`/jobs/${job.img}`" :alt="job.company">
-                                <a class="job-title" :href="job.link" target="_blank">
+                                <a class="text-title" :href="job.link" target="_blank">
                                     {{ job.company }} <br></br>
                                 </a>
                                     
-                                <div class="job-subtitle">
+                                <div class="text-body">
                                     {{ job.title }} <br></br>
                                 </div>
-                                <div class="job-subtitle">
+                                <div class="text-body">
                                     {{ job.stack }}
                                 </div>
                                 <div>
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
 
-                            <div class="job-description" v-html="job.description"></div>
+                            <div class="job-description text-body" v-html="job.description"></div>
                         </li>
                     </template>
                 </ul>
@@ -190,7 +190,6 @@ export default {
     position: absolute;
     top: 0px;
 
-    /* width: 100%; */
     list-style: none;
 
     transition: all 1s ease-in-out;
@@ -205,15 +204,8 @@ export default {
     margin: 0px 20px 0px 0px;
     object-fit: cover;
 }
-#jobs li .job-title {
-    font-size: calc(24px * 1.6);
-}
-#jobs li .job-subtitle {
-    font-size: 24px;
-}
 #jobs li .job-description {
     display: block;
-    font-size: 22px;
     margin: 30px 0px 0px;
     font-weight: normal;
     line-height: 22px;

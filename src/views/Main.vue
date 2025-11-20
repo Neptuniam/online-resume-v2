@@ -5,6 +5,8 @@
 
     <work-history ref="workHistory" />
 
+    <skills />
+
     <div
         v-show="showUpArrow"
         class="scroll-arrow-indicator clickable noselect up-arrow"
@@ -28,12 +30,14 @@
 import Jumbotron from '../components/main/Jumbotron.vue';
 import Bio from '../components/main/Bio.vue';
 import WorkHistory from '../components/main/WorkHistory.vue';
+import Skills from '../components/main/Skills.vue';
 
 export default {
     components: {
         Jumbotron,
         Bio,
-        WorkHistory
+        WorkHistory,
+        Skills
     },
 
     data() {
@@ -52,6 +56,7 @@ export default {
         },
 
         areViewingHistory: function () {
+            // TODO: Update to if center of section is in view
             const scrollY = document.documentElement.scrollTop || document.body.scrollTop;
             const el = document.getElementById('work-history');
             const rect = el.getBoundingClientRect();
@@ -98,6 +103,36 @@ export default {
 };
 </script>
 
+<style>
+.section {
+    font-family: 'Roboto Condensed';
+
+    padding: 90px 0px;
+}
+.section:nth-child(even) {
+    background-color: rgba(217, 217, 217, 0.4);
+}
+.section > div {
+    width: calc(100vw - 100px);
+    max-width: 1400px;
+    margin: auto;
+}
+.section-header {
+    font-size: 42px;
+    font-family: 'Patua One';
+    text-align: center;
+    text-decoration: underline;
+
+    color: black;
+}
+.section-sub-header {
+    font-size: 26px;
+    text-align: center;
+}
+.section a {
+    color: rgb(65, 62, 62);
+}
+</style>
 <style scoped>
 @keyframes bounceIn {
     0%,

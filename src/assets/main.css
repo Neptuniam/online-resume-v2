@@ -2,6 +2,8 @@
 
 html {
     --text-color-normal: rgb(72, 72, 72);
+    --text-title-size: calc(20px * 1.6);
+    --text-body-size: 20px;
 }
 
 #app {
@@ -11,33 +13,16 @@ html {
     color: var(--text-color-normal);
 }
 
-.section {
-    font-family: 'Roboto Condensed';
+.text-title {
+    font-size: var(--text-title-size);
+}
+.text-body {
+    font-size: var(--text-body-size);
+}
 
-    padding: 90px 0px;
-}
-.section:nth-child(even) {
-    background-color: rgba(217, 217, 217, 0.4);
-}
-.section > div {
-    width: calc(100vw - 100px);
-    max-width: 1400px;
-    margin: auto;
-}
-.section-header {
+.text-center {
     text-align: center;
-    text-decoration: underline;
-    font-size: 42px;
-    font-family: 'Patua One';
-
-    color: black;
-
-    /* margin: 90px 0px 10px 0px; */
 }
-.section a {
-    color: rgb(65, 62, 62);
-}
-
 .full-height {
     height: 100%;
 }
@@ -58,4 +43,34 @@ html {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-1 {
+    flex: 0 0 8.33%;
+    max-width: 8.33%;
+}
+.col-2 {
+    flex: 0 0 16.67%;
+    max-width: 16.67%;
+}
+.col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.col-4 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+.col-5 {
+    flex: 0 0 41.67%;
+    max-width: 41.67%;
+}
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
 }
