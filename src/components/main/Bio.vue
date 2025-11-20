@@ -35,8 +35,7 @@
 export default {
     computed: {
         age: function () {
-            const birthDate = new Date('1997-09-19');
-            const ageDifMs = Date.now() - birthDate.getTime();
+            const ageDifMs = Date.now() - new Date('1997-09-19').getTime();
             const ageDate = new Date(ageDifMs); // miliseconds from epoch
 
             return Math.abs(ageDate.getUTCFullYear() - 1970);
@@ -64,10 +63,10 @@ img {
 }
 #age {
     margin-top: 45px;
-    font-size: calc(30px * 1.6);
-    line-height: 30px;
+    font-size: calc(28px * 1.6);
+    line-height: 28px;
 }
 #location {
-    font-size: 30px;
+    font-size: 28px;
 }
 </style>

@@ -7,6 +7,10 @@
 
     <skills />
 
+    <projects />
+
+    <!-- Contact me form -->
+
     <div
         v-show="showUpArrow"
         class="scroll-arrow-indicator clickable noselect up-arrow"
@@ -31,13 +35,15 @@ import Jumbotron from '../components/main/Jumbotron.vue';
 import Bio from '../components/main/Bio.vue';
 import WorkHistory from '../components/main/WorkHistory.vue';
 import Skills from '../components/main/Skills.vue';
+import Projects from '../components/main/Projects.vue';
 
 export default {
     components: {
         Jumbotron,
         Bio,
         WorkHistory,
-        Skills
+        Skills,
+        Projects
     },
 
     data() {
