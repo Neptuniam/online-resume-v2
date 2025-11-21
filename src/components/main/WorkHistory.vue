@@ -1,20 +1,30 @@
 <template>
-    <div id="work-history" class="section">
+    <div
+        id="work-history"
+        class="section"
+    >
         <div>
             <div class="section-header">Work Experience</div>
 
-            <div id="timeline">
-                <ul id="dates">
+            <div
+                id="timeline"
+                class="section-content-spacing"
+            >
+                <ul
+                    id="dates"
+                    class="float-left"
+                >
                     <li
-                        v-for="job in workHistory"
-                        @click="inView = job.id"
+                        v-for="(job, index) in workHistory"
+                        :key="`date_${job.id}`"
                         class="clickable"
-                        :class="{ selected: inView == job.id }"
+                        :class="{ selected: inView == index }"
+                        @click="inView = index"
                     >
                         <div class="job-company">
                             {{ job.company_short || job.company }}
                         </div>
-                        <div class="job-date ">
+                        <div class="job-date">
                             {{ readableDate(job.start_date) }} - {{ readableDate(job.end_date) }}
                         </div>
 
@@ -22,35 +32,49 @@
                     </li>
                 </ul>
 
-                <ul id="jobs">
-                    <template v-for="job in workHistory">
-                        <li
-                            :id="job.id"
-                            :class="{ 
-                                selected: inView == job.id,
-                            }"
-                            :style="`top: ${(job.id - inView) * -100}%;`"
-                        >
-                            <div class="full-width">
-                                <img :src="`/jobs/${job.img}`" :alt="job.company">
-                                <a class="text-title" :href="job.link" target="_blank">
-                                    {{ job.company }} <br></br>
-                                </a>
-                                    
-                                <div class="text-body">
-                                    {{ job.title }} <br></br>
-                                </div>
-                                <div class="text-body">
-                                    {{ job.stack }}
-                                </div>
-                                <div class="text-body" style="margin-top: 15px">
-                                    {{ readableDate(job.start_date) }} - {{ readableDate(job.end_date) }} ({{ getJobLenth(job) }})
-                                </div>
+                <ul
+                    id="jobs"
+                    class="float-right"
+                >
+                    <li
+                        v-for="(job, index) in workHistory"
+                        :key="`job_${job.id}`"
+                        :style="`top: ${(index - inView) * 100}%;`"
+                    >
+                        <div class="full-width">
+                            <img
+                                :src="`/jobs/${job.img}`"
+                                class="float-left"
+                            />
+
+                            <a
+                                class="text-title"
+                                :href="job.link"
+                                target="_blank"
+                            >
+                                {{ job.company }}
+                            </a>
+
+                            <div class="text-body">
+                                {{ job.title }}
                             </div>
 
-                            <div class="job-description text-body" v-html="job.description"></div>
-                        </li>
-                    </template>
+                            <div class="text-body">
+                                {{ job.stack }}
+                            </div>
+
+                            <div class="text-body job-date">
+                                {{ readableDate(job.start_date) }} - {{ readableDate(job.end_date) }} ({{
+                                    getJobLenth(job)
+                                }})
+                            </div>
+                        </div>
+
+                        <div
+                            class="job-description text-body"
+                            v-html="job.description"
+                        ></div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -61,50 +85,60 @@
 import { history } from '@/assets/work_experience.js';
 
 const DAY = 1000 * 60 * 60 * 24;
-const MONTHS = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+const MONTHS = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+];
 
 export default {
     data: () => ({
         workHistory: history,
-        inView: history[0].id
+        inView: 0
     }),
 
     methods: {
-        readableDate: function(date) {
-            if (!date)
-                return 'Ongoing';
+        readableDate: function (date) {
+            if (!date) return 'Ongoing';
 
             const _date = new Date(date);
             return `${MONTHS[_date.getMonth()]} ${_date.getFullYear()}`;
         },
 
-        getJobLenth: function(job) {
+        getJobLenth: function (job) {
             const addAndPadStr = (value, denomination) => {
                 if (!!value) {
                     str += `${value} ${denomination}`;
 
-                    if (value > 1)
-                        str += 's';
+                    if (value > 1) str += 's';
                 }
-            }
+            };
 
             const date2 = !!job.end_date ? new Date(job.end_date) : new Date();
             const date1 = new Date(job.start_date);
-            
+
             const diff = Math.floor(date2.getTime() - date1.getTime());
 
             const days = Math.floor(diff / DAY);
             const years = Math.floor(days / 365);
             const months = Math.floor((days % 365) / 31);
-            
+
             let str = '';
             addAndPadStr(years, 'year');
 
-            if (!!str && !!months)
-                str += ' & ';
+            if (!!str && !!months) str += ' & ';
 
             addAndPadStr(months, 'month');
-   
+
             return str;
         }
     }
@@ -115,32 +149,23 @@ export default {
 #timeline {
     position: relative;
 
-    width: 100%;
-    max-width: 1400px;
-
     overflow: hidden;
-    margin: 40px auto;
 }
 
 #dates {
     width: 325px;
-    float: left;
 
     border-right: grey 1px solid;
-    padding-left: 0px !important;
+    padding-left: 0px;
 }
 #dates li {
     position: relative;
     list-style: none;
-    width: 100%;
     height: 80px;
 
-    padding: 20px 25px 20px 0px;
+    padding: 20px 20px 20px 0px;
 
     text-align: right;
-}
-#dates li.selected {
-    padding: 10px 25px 10px 0px;
 }
 #dates .job-company {
     font-size: calc(16px * 1.6);
@@ -162,6 +187,9 @@ export default {
     border-radius: 50%;
 }
 
+#dates li.selected {
+    padding: 10px 20px 10px 0px;
+}
 #dates .selected .job-company {
     font-size: calc(22px * 1.6);
     line-height: calc(22px * 1.6);
@@ -177,13 +205,13 @@ export default {
 
     width: 25px;
     height: 25px;
+    border-width: 5px;
+    border-color: #4b74ce;
 }
-
 
 #jobs {
     width: calc(100% - 315px);
     overflow: hidden;
-    float: right;
     text-align: left;
 }
 #jobs li {
@@ -194,31 +222,22 @@ export default {
 
     transition: all 1s ease-in-out;
 }
-#jobs>li>.full-width {
+#jobs > li > .full-width {
     height: 180px;
     position: relative;
 }
 #jobs li img {
-    float: left;
     height: 100%;
-    margin: 0px 20px 0px 0px;
     object-fit: cover;
+
+    margin-right: 20px;
+}
+#jobs li .job-date {
+    margin-top: 20px;
 }
 #jobs li .job-description {
-    display: block;
-    margin: 30px 0px 0px;
     font-weight: normal;
-    line-height: 22px;
-}
 
-.job-bump-button {
-    font-size: 22px;
-    font-weight: 600;
-
-    margin: 0px 10px;
-}
-.job-bump-button.disabled {
-    color: grey;
-    cursor: not-allowed;
+    margin-top: 30px;
 }
 </style>

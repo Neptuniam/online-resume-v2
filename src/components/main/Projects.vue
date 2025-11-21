@@ -1,64 +1,72 @@
 <template>
-    <div class="section">
-        <div class="section-header">Personal Projects</div>
+    <div
+        class="section"
+        id="projects"
+    >
+        <div>
+            <div class="section-header">Personal Projects</div>
 
-        <p class="section-sub-header">
-            Here's a bunch of my most notable projects pulled dynamically from the Github API!
-        </p>
+            <div class="section-sub-header">
+                Here's a bunch of my most notable projects pulled dynamically from the Github API!
+            </div>
 
-        <div
-            v-if="projects === null"
-            class="text-title text-center"
-            style="margin-top: 40px"
-        >
-            Loading...
-        </div>
-        <div v-else-if="!projects.length">No projects found.</div>
-        <div
-            v-else
-            class="row"
-            style="margin: 40px auto"
-        >
             <div
-                v-for="project in projects"
-                :key="project.node_id"
-                class="col-3"
+                v-if="projects === null"
+                class="text-title text-center section-content-spacing"
             >
-                <a
-                    :href="project.html_url"
-                    target="_blank"
+                Loading...
+            </div>
+            <div
+                v-else-if="!projects.length"
+                class="text-title text-center section-content-spacing"
+            >
+                No projects found.
+            </div>
+            <div
+                v-else
+                class="row section-content-spacing"
+            >
+                <div
+                    v-for="project in projects"
+                    :key="project.node_id"
+                    class="col-sm-6 col-md-4 col-3"
                 >
-                    <img :src="`/projects/${imgMap[project.name] || 'default'}.PNG`" />
+                    <a
+                        :href="project.html_url"
+                        target="_blank"
+                    >
+                        <img :src="`/projects/${imgMap[project.name] || 'default'}.PNG`" />
 
-                    <div class="project-title-row text-body">
-                        <a
-                            class="project-name"
-                            :href="project.homepage"
-                            target="_blank"
-                        >
-                            {{ project.name }}
-                        </a>
+                        <div class="project-title-row text-body">
+                            <a
+                                class="project-name"
+                                :href="project.homepage"
+                                target="_blank"
+                            >
+                                {{ project.name }}
+                            </a>
 
-                        <span
-                            style="float: right"
-                            :class="{
-                                'red-text': typeMap[project.name] == 'Android',
-                                'cyan-text': typeMap[project.name] == 'CLI',
-                                'orange-text': !typeMap[project.name]
-                            }"
-                        >
-                            <i
+                            <span
+                                class="float-right"
                                 :class="{
-                                    'fab fa-android': typeMap[project.name] == 'Android',
-                                    'fas fa-code': typeMap[project.name] == 'CLI',
-                                    'fab fa-html5': !typeMap[project.name]
+                                    'red-text': typeMap[project.name] == 'Android',
+                                    'cyan-text': typeMap[project.name] == 'CLI',
+                                    'orange-text': !typeMap[project.name]
                                 }"
-                            ></i>
+                            >
+                                <i
+                                    :class="{
+                                        'fab fa-android': typeMap[project.name] == 'Android',
+                                        'fas fa-code': typeMap[project.name] == 'CLI',
+                                        'fab fa-html5': !typeMap[project.name]
+                                    }"
+                                ></i>
 
-                            {{ typeMap[project.name] || 'Web' }}
-                        </span>
-                    </div>
-                </a>
+                                {{ typeMap[project.name] || 'Web' }}
+                            </span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -127,7 +135,6 @@ img {
     height: 100%;
     object-fit: cover;
 
-    /* border: 1px solid rgb(192, 187, 187); */
     border-radius: 4px;
 
     transition: all 0.2s ease-in-out;
@@ -146,20 +153,10 @@ img:hover {
     left: 22.5px;
     bottom: 25px;
 
-    width: calc(100% - 45px);
+    width: calc(100% - 50px);
 }
 
 .project-name {
     font-weight: 600;
-}
-
-.red-text {
-    color: #f44336;
-}
-.cyan-text {
-    color: #00bcd4;
-}
-.orange-text {
-    color: #ff9800;
 }
 </style>

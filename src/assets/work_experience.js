@@ -6,7 +6,7 @@ export const history = [
         company: 'Intelligent Wellhead Systems',
         company_short: 'IWS',
         title: 'Senior Front-end developer',
-        stack: 'VueJS + Laravel',
+        stack: 'Vue.js & Laravel',
         start_date: '2023-03-01T00:00:00',
         description:
             'Responsible for the primary web application (both building new and improving existing features). <br /> Creating component libraries for developing consistent UIs easier and faster. <br /> Optimization practices to improve site reliability and performance. <br /> Mentoring Junior developers.'
@@ -17,11 +17,11 @@ export const history = [
         link: 'https://axethrowing.org/watl',
         company: 'Yoreferee',
         title: 'Front end developer',
-        stack: 'VueJS + Firebase',
+        stack: 'Vue.js & Firebase',
         start_date: '2021-08-01T00:00:00',
         end_date: '2022-12-01T00:00:00',
         description:
-            'I have taken on a contract with Yoreferee in order to expand on their web applications and resolve a wide range of bugs. While I have primarily focused on frontend using VueJS, this has also given me a chance to explore Firebase.'
+            'I have taken on a contract with Yoreferee in order to expand on their web applications and resolve a wide range of bugs. While I have primarily focused on frontend using Vue.js, this has also given me a chance to explore Firebase.'
     },
     {
         id: 4,
@@ -29,11 +29,11 @@ export const history = [
         link: 'https://gosnappy.io/#/',
         company: 'Snappy Innovations',
         title: 'Senior Software Developer',
-        stack: 'VueJS, Angular, Flutter',
+        stack: 'Vue.js, Angular & Flutter',
         start_date: '2020-05-01T00:00:00',
         end_date: '2023-03-01T00:00:00',
         description:
-            'Taken on the responsibility of leadership over exciting web and native applications built in VueJS, AngularJS and Flutter. This role includes creating new or expanding upon several restaurant CRM apps. These include making online orders, earning and redeeming punch cards and coupons, and the purchasing of store credits and gift cards. I have taken a leadership role in creating the POS application using Flutter as well as several sibling applications that work in cooperation with one another in order to build the best user experience possible.'
+            'Taken on the responsibility of leadership over exciting web and native applications built in Vue.js, AngularJS and Flutter. This role includes creating new or expanding upon several restaurant CRM apps. These include making online orders, earning and redeeming punch cards and coupons, and the purchasing of store credits and gift cards. I have taken a leadership role in creating the POS application using Flutter as well as several sibling applications that work in cooperation with one another in order to build the best user experience possible.'
     },
     {
         id: 3,
@@ -42,11 +42,11 @@ export const history = [
         company: 'Nobal Technologies',
         company_short: 'Nobal (Consultant)',
         title: 'Full Stack Web Developer (Consultant)',
-        stack: 'VueJS / Laravel',
+        stack: 'Vue.js & Laravel',
         start_date: '2020-05-01T00:00:00',
         end_date: '2022-01-01T00:00:00',
         description:
-            'I am continuing my adventure with Nobal Technologies as a contractor in order to build multiple mobile directed VueJs apps. The ION CMS is a mobile web application designed to help clients get set up with their brand new iMirror, connect their Shopify account and customize their iMirrors theme. VTO users is another web application used to view and manage the users 3D avatars. I have also continued my work with the CMS.'
+            'I am continuing my adventure with Nobal Technologies as a contractor in order to build multiple mobile directed Vue.js apps. The ION CMS is a mobile web application designed to help clients get set up with their brand new iMirror, connect their Shopify account and customize their iMirrors theme. VTO users is another web application used to view and manage the users 3D avatars. I have also continued my work with the CMS.'
     },
     {
         id: 2,
@@ -54,7 +54,7 @@ export const history = [
         link: 'https://www.nobal.ca/',
         company: 'Nobal Technologies',
         title: 'Full Stack Web Developer',
-        stack: 'VueJS / Laravel',
+        stack: 'Vue.js & Laravel',
         start_date: '2019-05-01T00:00:00',
         end_date: '2020-05-01T00:00:00',
         description:

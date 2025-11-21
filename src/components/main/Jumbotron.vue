@@ -13,14 +13,14 @@
             <div>
                 <router-link
                     to="/resume"
-                    class="jumbotron-button"
+                    class="jumbotron-button text-body"
                 >
                     <i class="fas fa-file-invoice"></i>
                     Resume
                 </router-link>
 
                 <a
-                    class="jumbotron-button"
+                    class="jumbotron-button text-body"
                     href="https://github.com/neptuniam"
                     target="_blank"
                 >
@@ -29,16 +29,16 @@
                 </a>
 
                 <a
-                    class="jumbotron-button"
+                    class="jumbotron-button text-body"
                     href="https://www.linkedin.com/in/liam-jones-35530b12b/"
                     target="_blank"
                 >
-                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-linkedin"></i>
                     Linked-in
                 </a>
 
                 <a
-                    class="jumbotron-button"
+                    class="jumbotron-button text-body"
                     href="mailto:ljones1997@hotmail.com"
                 >
                     <i class="far fa-envelope"></i>
@@ -51,7 +51,6 @@
 
 <script>
 import { RouterLink } from 'vue-router';
-
 import Typed from 'typed.js';
 
 const QUOTE_BOARD_STRINGS = [
@@ -90,8 +89,6 @@ export default {
     height: calc(100vh - 100px);
     width: 100vw;
 
-    position: relative;
-
     color: white;
 }
 .parallax-container-overlay {
@@ -107,21 +104,20 @@ export default {
 
 #name {
     font-size: 72px;
+    font-weight: 700;
     line-height: 72px;
     font-family: 'Roboto Condensed';
 }
 .sub-text {
-    font-size: 32px;
+    font-size: 36px;
 }
 .quote-board-container {
     margin: 30px 0px;
 }
 
 .jumbotron-button {
-    font-size: 18px;
     color: #007bff;
     text-decoration: none;
-    font-family: 'Roboto Condensed';
 
     background-image: linear-gradient(120deg, #a1c4fd 0, #c2e9fb 100%);
 

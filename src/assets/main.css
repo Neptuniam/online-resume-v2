@@ -4,10 +4,13 @@ html {
     --text-color-normal: rgb(72, 72, 72);
     --text-title-size: calc(20px * 1.6);
     --text-body-size: 20px;
+
+    --text-section-title-size: calc(26px * 1.6);
+    --text-section-sub-size: 26px;
 }
 
 #app {
-    font-family: 'Poiret One' !important;
+    font-family: 'Roboto Condensed';
 
     background-color: white;
     color: var(--text-color-normal);
@@ -34,15 +37,18 @@ a:hover {
 .full-height {
     height: 100%;
 }
-
 .full-width {
     width: 100%;
 }
-
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
 .clickable {
     cursor: pointer;
 }
-
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -51,6 +57,16 @@ a:hover {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.red-text {
+    color: #f44336;
+}
+.cyan-text {
+    color: #00bcd4;
+}
+.orange-text {
+    color: #ff9800;
 }
 
 .row {
@@ -81,4 +97,69 @@ a:hover {
 .col-6 {
     flex: 0 0 50%;
     max-width: 50%;
+}
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 1400px) {
+    .col-md-1 {
+        flex: 0 0 8.33%;
+        max-width: 8.33%;
+    }
+    .col-md-2 {
+        flex: 0 0 16.67%;
+        max-width: 16.67%;
+    }
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .col-md-4 {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+    .col-md-5 {
+        flex: 0 0 41.67%;
+        max-width: 41.67%;
+    }
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .col-sm-1 {
+        flex: 0 0 8.33%;
+        max-width: 8.33%;
+    }
+    .col-sm-2 {
+        flex: 0 0 16.67%;
+        max-width: 16.67%;
+    }
+    .col-sm-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .col-sm-4 {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+    .col-sm-5 {
+        flex: 0 0 41.67%;
+        max-width: 41.67%;
+    }
+    .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }

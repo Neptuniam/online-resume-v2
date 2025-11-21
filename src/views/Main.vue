@@ -11,25 +11,17 @@
 
     <page-footer />
 
-    <!-- Contact me form -->
-
-    <div
+    <i
         v-show="showUpArrow"
-        class="scroll-arrow-indicator clickable noselect up-arrow"
+        class="scroll-arrow-indicator fas fa-chevron-up clickable noselect"
         @click="jumpTo(-1)"
-    >
-        <i class="fas fa-chevron-up" />
-    </div>
+    />
 
-    <div
-        class="scroll-arrow-indicator clickable noselect down-arrow"
+    <i
+        class="scroll-arrow-indicator fas fa-chevron-down clickable noselect"
+        :class="{ bounce: doBounce }"
         @click="jumpTo(1)"
-    >
-        <i
-            class="fas fa-chevron-down"
-            :class="{ bounce: doBounce }"
-        />
-    </div>
+    />
 </template>
 
 <script>
@@ -79,12 +71,12 @@ export default {
         jumpTo(direction) {
             if (this.areViewingHistory()) {
                 if (direction < 0) {
-                    if (this.$refs.workHistory.inView < this.$refs.workHistory.workHistory.length - 1) {
-                        this.$refs.workHistory.inView++;
+                    if (this.$refs.workHistory.inView > 0) {
+                        this.$refs.workHistory.inView--;
                         return;
                     }
-                } else if (this.$refs.workHistory.inView > 0) {
-                    this.$refs.workHistory.inView--;
+                } else if (this.$refs.workHistory.inView < this.$refs.workHistory.workHistory.length - 1) {
+                    this.$refs.workHistory.inView++;
                     return;
                 }
             }
@@ -120,21 +112,18 @@ export default {
 </script>
 
 <style>
-.section {
-    font-family: 'Roboto Condensed';
-
-    padding: 90px 0px;
-}
 .section:nth-child(odd) {
     background-color: rgba(217, 217, 217, 0.4);
 }
 .section > div {
-    width: calc(100vw - 100px);
-    max-width: 1400px;
+    width: 1400px;
+    max-width: calc(100vw - 100px);
+    padding: 90px 0px;
     margin: auto;
 }
+
 .section-header {
-    font-size: 42px;
+    font-size: var(--text-section-title-size);
     font-family: 'Patua One';
     text-align: center;
     text-decoration: underline;
@@ -142,8 +131,11 @@ export default {
     color: black;
 }
 .section-sub-header {
-    font-size: 26px;
+    font-size: var(--text-section-sub-size);
     text-align: center;
+}
+.section-content-spacing {
+    margin-top: 40px;
 }
 </style>
 <style scoped>
@@ -165,23 +157,16 @@ export default {
 }
 .scroll-arrow-indicator {
     position: fixed;
-    right: 10px;
+    right: 20px;
 
     font-size: 32px;
 
-    text-align: cente;
-
-    height: 40px;
-    width: 40px;
-
-    transition:
-        visibility 0.5s,
-        opacity 0.5s linear;
+    text-align: center;
 }
-.up-arrow {
+.fa-chevron-up {
     top: 10px;
 }
-.down-arrow {
+.fa-chevron-down {
     bottom: 10px;
 }
 .bounce {

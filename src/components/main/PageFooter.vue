@@ -1,6 +1,6 @@
 <template>
     <div class="page-footer text-center">
-        <div class="socials">
+        <div class="socials-row">
             <a
                 v-for="socials in socials"
                 :href="socials.link"
@@ -10,7 +10,7 @@
             </a>
         </div>
 
-        <div class="copy-right">&copy; {{ new Date().getFullYear() }} Liam Jones.</div>
+        <div class="copy-right-row text-body">&copy; {{ new Date().getFullYear() }} Liam Jones.</div>
     </div>
 </template>
 
@@ -22,24 +22,16 @@ const SOCIALS = [
     },
     {
         link: 'mailto:ljones1997@hotmail.com',
-        icon: 'far fa-envelope'
+        icon: 'fas fa-envelope'
     },
     {
         link: 'https://www.linkedin.com/in/liam-jones-35530b12b/',
-        icon: 'fab fa-linkedin-in'
+        icon: 'fab fa-linkedin'
     },
-    // {
-    //     link: 'https://www.facebook.com/liam.jones.9212301',
-    //     icon: 'fab fa-facebook-f'
-    // },
     {
         link: 'https://www.instagram.com/liamjones1134/',
         icon: 'fab fa-instagram'
     }
-    // {
-    //     link: 'https://dribbble.com/Neptuniam/buckets',
-    //     icon: 'fab fa-dribbble'
-    // }
 ];
 
 export default {
@@ -53,17 +45,16 @@ export default {
 
 <style scoped>
 .page-footer {
+    color: white;
+
     width: 100vw;
     background-color: #45526e;
 }
-.page-footer .socials {
+.page-footer .socials-row {
     padding: 40px 0px;
-
-    background-color: #45526e;
 }
 i {
-    font-size: 42px;
-    color: white;
+    font-size: calc(var(--text-body-size) * 2);
 
     margin: 0px 15px;
 
@@ -73,10 +64,8 @@ i:hover {
     color: rgb(192, 187, 187);
 }
 
-.page-footer .copy-right {
+.page-footer .copy-right-row {
     font-family: Patua One;
-    font-size: 1.05rem;
-    color: grey;
 
     padding: 20px 0px;
 
