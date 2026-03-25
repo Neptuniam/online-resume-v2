@@ -1,7 +1,7 @@
 <template>
     <div
         id="main-container"
-        :class="{ 'dark-mode': isDark }"
+        :class="{ 'dark-mode': isDarkMode }"
     >
         <jumbotron />
 
@@ -16,13 +16,11 @@
         <page-footer />
     </div>
 
-    <!-- :class="isDark ? 'fas fa-moon' : 'far fa-moon'" -->
-    <!-- TODO: backup to LS -->
     <i
         id="dark-mode-toggle"
         class="clickable noselect"
-        :class="isDark ? 'fas fa-moon' : 'far fa-sun'"
-        @click="isDark = !isDark"
+        :class="isDarkMode ? 'fas fa-moon' : 'far fa-sun'"
+        @click="isDarkMode = !isDarkMode"
     />
 
     <i
@@ -59,7 +57,7 @@ export default {
 
     data() {
         return {
-            isDark: true,
+            isDarkMode: true,
             showUpArrow: false,
             doBounce: true
         };
@@ -118,6 +116,10 @@ export default {
     },
 
     mounted() {
+        // If early or late in the day, default to the dark theme
+        const clientTime = new Date().getHours();
+        this.isDarkMode = clientTime < 6 || clientTime > 18;
+
         document.addEventListener('scroll', () => {
             this.showUpArrow = window.scrollY >= window.innerHeight * 0.9;
             this.doBounce = window.scrollY <= 50;
@@ -142,11 +144,11 @@ export default {
     color: #717171;
 }
 #dark-mode-toggle {
-    left: 20px;
-    bottom: 20px;
+    left: 15px;
+    bottom: 15px;
 }
 .scroll-arrow-indicator {
-    right: 20px;
+    right: 15px;
 }
 
 @keyframes bounceIn {

@@ -30,11 +30,11 @@ html {
     --text-color-anchor: rgb(169, 166, 166);
     --text-color-anchor-hover: rgb(138, 136, 136);
 
-    --background-color-main: #282828;
-    --background-color-odd-section: #303030;
+    --background-color-main: #12131a;
+    --background-color-odd-section: #1e1f28;
 
-    --background-color-footer: #1e1d1d;
-    --background-color-footer-copy-right: #121212;
+    --background-color-footer: #3a3c4b;
+    --background-color-footer-copy-right: #2c2e3c;
 }
 
 #main-container {

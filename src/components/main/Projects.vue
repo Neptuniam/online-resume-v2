@@ -36,40 +36,36 @@
 
                         <div class="project-title-row">
                             <span class="text-body">
-                                <i
+                                <a
                                     :href="project.html_url"
                                     target="_blank"
-                                    class="fab fa-github margin-right-1"
-                                ></i>
+                                    class="margin-right-1"
+                                >
+                                    <i
+                                        class="fab fa-github"
+                                        style="color: var(--text-color-section-header)"
+                                    />
+                                </a>
 
                                 <a
+                                    v-if="!!project.homepage"
                                     :href="project.homepage"
                                     target="_blank"
                                     class="project-name"
                                 >
                                     {{ capitalize(project.name) }}
                                 </a>
+                                <span
+                                    v-else
+                                    class="project-name"
+                                >
+                                    {{ capitalize(project.name) }}
+                                </span>
                             </span>
 
                             <span class="float-right text-body">
-                                <span
-                                    :class="{
-                                        'red-text': typeMap[project.name] == 'Android',
-                                        'cyan-text': typeMap[project.name] == 'CLI',
-                                        'vue-text': project.language == 'Vue',
-                                        'react-text': typeMap[project.name] == 'React',
-                                        'orange-text': !typeMap[project.name] || typeMap[project.name] == 'Web'
-                                    }"
-                                >
-                                    <i
-                                        :class="{
-                                            'fab fa-android': typeMap[project.name] == 'Android',
-                                            'fas fa-code': typeMap[project.name] == 'CLI',
-                                            'fab fa-vuejs': project.language == 'Vue',
-                                            'fab fa-react': typeMap[project.name] == 'React',
-                                            'fab fa-html5': !typeMap[project.name] || typeMap[project.name] == 'Web'
-                                        }"
-                                    ></i>
+                                <span :class="project.colorClass">
+                                    <i :class="project.iconClass"></i>
 
                                     {{ typeMap[project.name] || project.language || 'Web' }}
                                 </span>
@@ -147,7 +143,32 @@ export default {
 
     mounted() {
         axios.get('https://api.github.com/users/Neptuniam/repos').then((res) => {
-            this.projects = res?.data?.filter((_job) => !FILTERED_PROJECTS.includes(_job.name)) || [];
+            const _projects = res?.data || [];
+
+            this.projects = _projects
+                ?.filter((_project) => !FILTERED_PROJECTS.includes(_project.name))
+                ?.map((_project) => {
+                    if (this.typeMap[_project.name] == 'Android') {
+                        _project.colorClass = 'red-text';
+                        _project.iconClass = 'fab fa-android';
+                    } else if (this.typeMap[_project.name] == 'CLI') {
+                        _project.colorClass = 'cyan-text';
+                        _project.iconClass = 'fas fa-code';
+                    } else if (_project.language == 'Vue') {
+                        _project.colorClass = 'vue-text';
+                        _project.iconClass = 'fab fa-vuejs';
+                    } else if (this.typeMap[_project.name] == 'React') {
+                        _project.colorClass = 'react-text';
+                        _project.iconClass = 'fab fa-react';
+                    } else if (!this.typeMap[_project.name] || this.typeMap[_project.name] == 'Web') {
+                        _project.colorClass = 'orange-text';
+                        _project.iconClass = 'fab fa-html5';
+                    } else {
+                        console.error('Unknown Class colour condition', _project);
+                    }
+
+                    return _project;
+                });
         });
     }
 };
@@ -184,7 +205,7 @@ img {
     padding: 5px 5px;
 }
 .dark-mode .card {
-    background-color: #3f3f3f;
+    background-color: #3a3c4b;
 }
 
 .project-title-row {
