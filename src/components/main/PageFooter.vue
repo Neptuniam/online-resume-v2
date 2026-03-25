@@ -48,12 +48,14 @@ export default {
     color: white;
 
     width: 100vw;
-    background-color: #45526e;
+    /* background-color: #45526e; */
+    background-color: var(--background-color-footer);
 }
 .page-footer .socials-row {
     padding: 40px 0px;
 }
 i {
+    color: rgb(206, 202, 202);
     font-size: calc(var(--text-body-size) * 2);
 
     margin: 0px 15px;
@@ -69,6 +71,7 @@ i:hover {
 
     padding: 20px 0px;
 
-    background-color: rgba(0, 0, 0, 0.2);
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    background-color: var(--background-color-footer-copy-right);
 }
 </style>

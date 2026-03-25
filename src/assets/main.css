@@ -1,7 +1,6 @@
 @import './base.css';
 
 html {
-    --text-color-normal: rgb(72, 72, 72);
     --text-title-size: calc(20px * 1.6);
     --text-body-size: 20px;
 
@@ -9,11 +8,47 @@ html {
     --text-section-sub-size: 26px;
 }
 
-#app {
+#main-container {
+    /* Light mode colour variables */
+    --text-color-normal: rgb(72, 72, 72);
+    --text-color-section-header: black;
+    --text-color-section-title: navy;
+    --text-color-anchor: rgb(65, 62, 62);
+    --text-color-anchor-hover: rgb(37, 36, 36);
+
+    --background-color-main: white;
+    --background-color-odd-section: rgba(217, 217, 217, 0.4);
+
+    --background-color-footer: #0a1128;
+    --background-color-footer-copy-right: rgb(3, 1, 18);
+}
+#main-container.dark-mode {
+    /* Dark mode colour variables */
+    --text-color-normal: rgb(206, 202, 202);
+    --text-color-section-header: rgb(255, 255, 255);
+    --text-color-section-title: rgb(221, 217, 217);
+    --text-color-anchor: rgb(169, 166, 166);
+    --text-color-anchor-hover: rgb(138, 136, 136);
+
+    --background-color-main: #0a1128;
+    /* --background-color-odd-section: rgb(5, 12, 21); */
+    /* --background-color-main: #000814; */
+    --background-color-odd-section: rgb(3, 1, 18);
+
+    --background-color-footer: #0b2a4a;
+    --background-color-footer-copy-right: #06162b;
+}
+
+#main-container {
     font-family: 'Roboto Condensed';
 
-    background-color: white;
+    background-color: var(--background-color-main);
     color: var(--text-color-normal);
+}
+
+#main-container,
+.section:nth-child(odd) {
+    transition: all 0.75s ease-in-out;
 }
 
 .text-title {
@@ -24,11 +59,11 @@ html {
 }
 
 a {
-    color: rgb(65, 62, 62);
+    color: var(--text-color-anchor);
     transition: all 0.2s ease-in-out;
 }
 a:hover {
-    color: rgb(37, 36, 36);
+    color: var(--text-color-anchor-hover);
 }
 
 .text-center {
@@ -67,6 +102,12 @@ a:hover {
 }
 .orange-text {
     color: #ff9800;
+}
+.vue-text {
+    color: #4fc08d;
+}
+.react-text {
+    color: rgb(88, 196, 220);
 }
 
 .row {
@@ -162,4 +203,30 @@ a:hover {
         flex: 0 0 100%;
         max-width: 100%;
     }
+}
+
+.section:nth-child(odd) {
+    background-color: var(--background-color-odd-section);
+}
+.section > div {
+    width: 1400px;
+    max-width: calc(100vw - 100px);
+    padding: 90px 0px;
+    margin: auto;
+}
+
+.section-header {
+    font-size: var(--text-section-title-size);
+    font-family: 'Patua One';
+    text-align: center;
+    text-decoration: underline;
+
+    color: var(--text-color-section-header);
+}
+.section-sub-header {
+    font-size: var(--text-section-sub-size);
+    text-align: center;
+}
+.section-content-spacing {
+    margin-top: 40px;
 }

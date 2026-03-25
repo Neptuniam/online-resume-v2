@@ -43,7 +43,7 @@
                     >
                         <div class="full-width">
                             <img
-                                :src="`/jobs/${job.img}`"
+                                :src="`/online-resume-v2/jobs/${job.img}`"
                                 class="float-left"
                             />
 

@@ -27,45 +27,59 @@
                 class="row section-content-spacing"
             >
                 <div
-                    v-for="project in projects"
+                    v-for="(project, index) in projects"
                     :key="project.node_id"
-                    class="col-sm-6 col-md-4 col-3"
+                    class="col-sm-12 col-md-6 col-3"
                 >
-                    <a
-                        :href="project.html_url"
-                        target="_blank"
-                    >
-                        <img :src="`/projects/${imgMap[project.name] || 'default'}.PNG`" />
+                    <div class="card">
+                        <img :src="`/online-resume-v2/projects/${imgMap[project.name] || 'default'}.PNG`" />
 
-                        <div class="project-title-row text-body">
-                            <a
-                                class="project-name"
-                                :href="project.homepage"
-                                target="_blank"
-                            >
-                                {{ project.name }}
-                            </a>
-
-                            <span
-                                class="float-right"
-                                :class="{
-                                    'red-text': typeMap[project.name] == 'Android',
-                                    'cyan-text': typeMap[project.name] == 'CLI',
-                                    'orange-text': !typeMap[project.name]
-                                }"
-                            >
+                        <div class="project-title-row">
+                            <span class="text-body">
                                 <i
-                                    :class="{
-                                        'fab fa-android': typeMap[project.name] == 'Android',
-                                        'fas fa-code': typeMap[project.name] == 'CLI',
-                                        'fab fa-html5': !typeMap[project.name]
-                                    }"
+                                    :href="project.html_url"
+                                    target="_blank"
+                                    class="fab fa-github margin-right-1"
                                 ></i>
 
-                                {{ typeMap[project.name] || 'Web' }}
+                                <a
+                                    :href="project.homepage"
+                                    target="_blank"
+                                    class="project-name"
+                                >
+                                    {{ capitalize(project.name) }}
+                                </a>
+                            </span>
+
+                            <span class="float-right text-body">
+                                <span
+                                    :class="{
+                                        'red-text': typeMap[project.name] == 'Android',
+                                        'cyan-text': typeMap[project.name] == 'CLI',
+                                        'vue-text': project.language == 'Vue',
+                                        'react-text': typeMap[project.name] == 'React',
+                                        'orange-text': !typeMap[project.name] || typeMap[project.name] == 'Web'
+                                    }"
+                                >
+                                    <i
+                                        :class="{
+                                            'fab fa-android': typeMap[project.name] == 'Android',
+                                            'fas fa-code': typeMap[project.name] == 'CLI',
+                                            'fab fa-vuejs': project.language == 'Vue',
+                                            'fab fa-react': typeMap[project.name] == 'React',
+                                            'fab fa-html5': !typeMap[project.name] || typeMap[project.name] == 'Web'
+                                        }"
+                                    ></i>
+
+                                    {{ typeMap[project.name] || project.language || 'Web' }}
+                                </span>
                             </span>
                         </div>
-                    </a>
+
+                        <!-- <div class="project-description text-body">
+                            {{ project.description }}
+                        </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,6 +113,11 @@ const TYPE_MAP = {
     'Generic-Linked-List': 'CLI',
     'VS-Shell': 'CLI',
 
+    'cipher-chat-react': 'React',
+
+    'Neptuniam.github.io': 'Web',
+    'Personal-Homepage': 'Web',
+
     'Remindly-V2.0': 'Android'
 };
 const FILTERED_PROJECTS = ['Neptuniam', 'lcbo-crawler', 'openhouse.ai-frontend-test'];
@@ -112,6 +131,20 @@ export default {
         };
     },
 
+    methods: {
+        capitalize: function (value) {
+            if (!value) return value;
+            return value
+                .replaceAll('-', ' ')
+                .replaceAll('_', ' ')
+                .replace(/(?:^|\s|["'([{])+\S/g, (match) => match.toUpperCase());
+        },
+
+        applySort: function () {
+            // TODO
+        }
+    },
+
     mounted() {
         axios.get('https://api.github.com/users/Neptuniam/repos').then((res) => {
             this.projects = res?.data?.filter((_job) => !FILTERED_PROJECTS.includes(_job.name)) || [];
@@ -121,42 +154,57 @@ export default {
 </script>
 
 <style scoped>
+.row {
+    position: relative;
+}
 .row > div {
     position: relative;
-    height: 240px;
-    padding: 10px 20px 60px 20px;
+    padding: 0px 15px 30px 15px;
 }
+/* .row > div:hover {
+    padding: 5px 5px 5px 5px;
+} */
 img {
     position: relative;
     top: 0px;
     left: 0px;
 
     width: 100%;
-    height: 100%;
+    height: 200px;
+
     object-fit: cover;
-
-    border-radius: 4px;
-
-    transition: all 0.2s ease-in-out;
 }
 
-img:hover {
-    top: -10px;
-    left: -10px;
+.card {
+    position: relative;
 
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
+    background-color: white;
+    border-radius: 4px;
+
+    padding: 5px 5px;
+}
+.dark-mode .card {
+    background-color: #0a1128;
 }
 
 .project-title-row {
-    position: absolute;
-    left: 22.5px;
-    bottom: 25px;
-
-    width: calc(100% - 50px);
+    padding: 0px 5px;
+}
+.project-name {
+    font-weight: 700;
 }
 
-.project-name {
-    font-weight: 600;
+.project-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    margin-top: 10px;
+}
+
+.margin-right-1 {
+    margin-right: 7.55px;
 }
 </style>

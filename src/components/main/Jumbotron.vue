@@ -10,40 +10,48 @@
                 <span id="quote-board"></span>
             </div>
 
-            <div>
-                <router-link
-                    to="/resume"
-                    class="jumbotron-button text-body"
-                >
-                    <i class="fas fa-file-invoice"></i>
-                    Resume
-                </router-link>
+            <div class="row">
+                <div class="col-sm-12 col-3">
+                    <router-link
+                        to="/resume"
+                        class="jumbotron-button text-body"
+                    >
+                        <i class="fas fa-file-invoice"></i>
+                        Resume
+                    </router-link>
+                </div>
 
-                <a
-                    class="jumbotron-button text-body"
-                    href="https://github.com/neptuniam"
-                    target="_blank"
-                >
-                    <i class="fab fa-github"></i>
-                    Github
-                </a>
+                <div class="col-sm-12 col-3">
+                    <a
+                        class="jumbotron-button text-body"
+                        href="https://github.com/neptuniam"
+                        target="_blank"
+                    >
+                        <i class="fab fa-github"></i>
+                        Github
+                    </a>
+                </div>
 
-                <a
-                    class="jumbotron-button text-body"
-                    href="https://www.linkedin.com/in/liam-jones-35530b12b/"
-                    target="_blank"
-                >
-                    <i class="fab fa-linkedin"></i>
-                    Linked-in
-                </a>
+                <div class="col-sm-12 col-3">
+                    <a
+                        class="jumbotron-button text-body"
+                        href="https://www.linkedin.com/in/liam-jones-35530b12b/"
+                        target="_blank"
+                    >
+                        <i class="fab fa-linkedin"></i>
+                        Linked-in
+                    </a>
+                </div>
 
-                <a
-                    class="jumbotron-button text-body"
-                    href="mailto:ljones1997@hotmail.com"
-                >
-                    <i class="far fa-envelope"></i>
-                    Email
-                </a>
+                <div class="col-sm-12 col-3">
+                    <a
+                        class="jumbotron-button text-body"
+                        href="mailto:ljones1997@hotmail.com"
+                    >
+                        <i class="far fa-envelope"></i>
+                        Email
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -106,15 +114,25 @@ export default {
     font-size: 72px;
     font-weight: 700;
     line-height: 72px;
+    text-align: center;
     font-family: 'Roboto Condensed';
 }
 .sub-text {
     font-size: 36px;
+    text-align: center;
 }
 .quote-board-container {
-    margin: 30px 0px;
+    margin-top: 30px;
 }
 
+.row {
+    width: 600px;
+    max-width: 100vw;
+}
+.row > div {
+    text-align: center;
+    margin-top: 30px;
+}
 .jumbotron-button {
     color: #007bff;
     text-decoration: none;
@@ -123,7 +141,7 @@ export default {
 
     padding: 10px 15px;
     border-radius: 4px;
-    margin: 0px 15px;
+    margin: auto;
 
     transition: all 0.2s ease-in-out;
 }

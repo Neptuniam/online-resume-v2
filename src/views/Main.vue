@@ -1,15 +1,29 @@
 <template>
-    <jumbotron />
+    <div
+        id="main-container"
+        :class="{ 'dark-mode': isDark }"
+    >
+        <jumbotron />
 
-    <bio />
+        <bio />
 
-    <skills />
+        <skills />
 
-    <work-history ref="workHistory" />
+        <work-history ref="workHistory" />
 
-    <projects />
+        <projects />
 
-    <page-footer />
+        <page-footer />
+    </div>
+
+    <!-- :class="isDark ? 'fas fa-moon' : 'far fa-moon'" -->
+    <!-- TODO: backup to LS -->
+    <i
+        id="dark-mode-toggle"
+        class="clickable noselect"
+        :class="isDark ? 'fas fa-moon' : 'far fa-sun'"
+        @click="isDark = !isDark"
+    />
 
     <i
         v-show="showUpArrow"
@@ -45,6 +59,7 @@ export default {
 
     data() {
         return {
+            isDark: true,
             showUpArrow: false,
             doBounce: true
         };
@@ -111,34 +126,29 @@ export default {
 };
 </script>
 
-<style>
-.section:nth-child(odd) {
-    background-color: rgba(217, 217, 217, 0.4);
-}
-.section > div {
-    width: 1400px;
-    max-width: calc(100vw - 100px);
-    padding: 90px 0px;
-    margin: auto;
-}
-
-.section-header {
-    font-size: var(--text-section-title-size);
-    font-family: 'Patua One';
-    text-align: center;
-    text-decoration: underline;
-
-    color: black;
-}
-.section-sub-header {
-    font-size: var(--text-section-sub-size);
-    text-align: center;
-}
-.section-content-spacing {
-    margin-top: 40px;
-}
-</style>
 <style scoped>
+#dark-mode-toggle,
+.scroll-arrow-indicator {
+    position: fixed;
+
+    font-size: 32px;
+    text-align: center;
+    color: rgb(72, 72, 72);
+
+    transition: all 0.2s ease-in-out;
+}
+#dark-mode-toggle:hover,
+.scroll-arrow-indicator:hover {
+    color: rgb(52, 52, 52);
+}
+#dark-mode-toggle {
+    left: 20px;
+    bottom: 20px;
+}
+.scroll-arrow-indicator {
+    right: 20px;
+}
+
 @keyframes bounceIn {
     0%,
     20%,
@@ -155,14 +165,7 @@ export default {
         transform: translateY(-15px);
     }
 }
-.scroll-arrow-indicator {
-    position: fixed;
-    right: 20px;
 
-    font-size: 32px;
-
-    text-align: center;
-}
 .fa-chevron-up {
     top: 10px;
 }

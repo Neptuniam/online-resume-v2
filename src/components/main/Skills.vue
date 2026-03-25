@@ -73,7 +73,7 @@ i.fas {
     font-size: calc(var(--text-body-size) * 2);
 }
 .section-title {
-    color: navy;
+    color: var(--text-color-section-title);
     font-weight: bold;
     padding: 5px 0px 10px;
 }

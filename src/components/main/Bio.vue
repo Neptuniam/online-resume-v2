@@ -60,7 +60,7 @@ img {
     font-family: Katibeh;
     font-weight: bold;
 
-    color: black;
+    color: var(--text-color-section-header);
 }
 #age {
     margin-top: 45px;
