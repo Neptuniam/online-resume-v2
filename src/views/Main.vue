@@ -133,13 +133,13 @@ export default {
 
     font-size: 32px;
     text-align: center;
-    color: rgb(72, 72, 72);
+    color: #8b8b8b;
 
     transition: all 0.2s ease-in-out;
 }
 #dark-mode-toggle:hover,
 .scroll-arrow-indicator:hover {
-    color: rgb(52, 52, 52);
+    color: #717171;
 }
 #dark-mode-toggle {
     left: 20px;

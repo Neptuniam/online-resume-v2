@@ -184,7 +184,7 @@ img {
     padding: 5px 5px;
 }
 .dark-mode .card {
-    background-color: #0a1128;
+    background-color: #3f3f3f;
 }
 
 .project-title-row {

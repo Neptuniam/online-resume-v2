@@ -19,24 +19,22 @@ html {
     --background-color-main: white;
     --background-color-odd-section: rgba(217, 217, 217, 0.4);
 
-    --background-color-footer: #0a1128;
-    --background-color-footer-copy-right: rgb(3, 1, 18);
+    --background-color-footer: #45526e;
+    --background-color-footer-copy-right: #0003;
 }
 #main-container.dark-mode {
     /* Dark mode colour variables */
-    --text-color-normal: rgb(206, 202, 202);
-    --text-color-section-header: rgb(255, 255, 255);
-    --text-color-section-title: rgb(221, 217, 217);
+    --text-color-normal: #eae4e4;
+    --text-color-section-header: #f6f3f3;
+    --text-color-section-title: #92b2e5;
     --text-color-anchor: rgb(169, 166, 166);
     --text-color-anchor-hover: rgb(138, 136, 136);
 
-    --background-color-main: #0a1128;
-    /* --background-color-odd-section: rgb(5, 12, 21); */
-    /* --background-color-main: #000814; */
-    --background-color-odd-section: rgb(3, 1, 18);
+    --background-color-main: #282828;
+    --background-color-odd-section: #303030;
 
-    --background-color-footer: #0b2a4a;
-    --background-color-footer-copy-right: #06162b;
+    --background-color-footer: #1e1d1d;
+    --background-color-footer-copy-right: #121212;
 }
 
 #main-container {
@@ -211,7 +209,7 @@ a:hover {
 .section > div {
     width: 1400px;
     max-width: calc(100vw - 100px);
-    padding: 90px 0px;
+    padding: 70px 0px;
     margin: auto;
 }
 
