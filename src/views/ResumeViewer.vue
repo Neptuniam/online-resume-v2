@@ -1,7 +1,7 @@
 <template>
     <iframe
-        style="height: 100vh; width: 80vw; padding: 10vh 20vw"
-        src="/resumes/resume.pdf"
+        style="height: 100vh; width: 100vw; padding: 0vh 20vw"
+        src="/online-resume-v2/resumes/resume.pdf"
     ></iframe>
 </template>
 

@@ -19,9 +19,9 @@
                     extensive experience with frameworks such as Laravel and Flutter.
                 </div>
 
-                When I'm not taking on exciting new programming projects I enjoy playing video games, following ARGs and
-                various motorsports, hitting the gym, collecting watches, and training my dog Harvard in competitive
-                scent detection.
+                When I'm not taking on exciting new programming projects I enjoy playing video games, following F1,
+                hitting the gym, collecting watches, training my dog Harvard in competitive scent detection and spending
+                time with my family.
             </div>
 
             <div id="age">Liam Andrew Jones, {{ age }}</div>
