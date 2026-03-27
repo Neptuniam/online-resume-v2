@@ -48,7 +48,6 @@ export default {
     color: white;
 
     width: 100vw;
-    /* background-color: #45526e; */
     background-color: var(--background-color-footer);
 }
 .page-footer .socials-row {
@@ -70,8 +69,6 @@ i:hover {
     font-family: Patua One;
 
     padding: 20px 0px;
-
-    /* background-color: rgba(0, 0, 0, 0.2); */
     background-color: var(--background-color-footer-copy-right);
 }
 </style>

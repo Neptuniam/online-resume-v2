@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router';
 import Typed from 'typed.js';
 
 const QUOTE_BOARD_STRINGS = [

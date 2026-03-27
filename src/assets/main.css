@@ -45,7 +45,9 @@ html {
 }
 
 #main-container,
-.section:nth-child(odd) {
+.section:nth-child(odd),
+.page-footer,
+.page-footer .copy-right-row {
     transition: all 0.75s ease-in-out;
 }
 
