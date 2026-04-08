@@ -9,7 +9,7 @@ export const history = [
         stack: 'Vue.js & Laravel',
         start_date: '2023-03-01T00:00:00',
         description:
-            'Responsible for the primary web application (both building new and improving existing features). <br /> Creating component libraries for developing consistent UIs easier and faster. <br /> Optimization practices to improve site reliability and performance. <br /> Mentoring Junior developers.'
+            'Led development of the primary web application, overseeing both the creation of new features and the enhancement of existing functionality. Designed and maintained reusable component libraries to streamline development and ensure consistent, high-quality user interfaces. Applied performance optimization techniques to improve site reliability, scalability, and overall user experience. Collaborated with cross-functional teams to brainstorm and define new features and functionality. Championed best practices in software development, including rigorous linting, comprehensive unit testing, and effective use of framework capabilities. Conducted code reviews and provided mentorship to junior developers, fostering a culture of continuous improvement and technical excellence.'
     },
     {
         id: 5,
@@ -21,7 +21,7 @@ export const history = [
         start_date: '2021-08-01T00:00:00',
         end_date: '2022-12-01T00:00:00',
         description:
-            'I have taken on a contract with Yoreferee in order to expand on their web applications and resolve a wide range of bugs. While I have primarily focused on frontend using Vue.js, this has also given me a chance to explore Firebase.'
+            'Demonstrated the ability to quickly adapt to complex, large-scale codebases and learn new technologies in fast-paced environments. Collaborated closely with cross-functional teams to translate wireframes and user stories into intuitive, user-focused solutions. Contributed to the development of new features while proactively identifying and resolving bugs to maintain application stability and performance. Additionally, designed and built standalone applications tailored to specific customer needs, delivering practical and scalable solutions.'
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ export const history = [
         start_date: '2020-05-01T00:00:00',
         end_date: '2023-03-01T00:00:00',
         description:
-            'Taken on the responsibility of leadership over exciting web and native applications built in Vue.js, AngularJS and Flutter. This role includes creating new or expanding upon several restaurant CRM apps. These include making online orders, earning and redeeming punch cards and coupons, and the purchasing of store credits and gift cards. I have taken a leadership role in creating the POS application using Flutter as well as several sibling applications that work in cooperation with one another in order to build the best user experience possible.'
+            'Developed and maintained over a dozen CRM applications, delivering a wide range of functionality to support evolving business needs. Demonstrated a strong ability to quickly learn and apply new frameworks and technologies aligned with company objectives. Authored clear, comprehensive documentation to streamline onboarding and enable new team members to contribute effectively from the outset. Designed highly optimized layouts and design patterns focused on minimizing user effort and maximizing efficiency. Provided mentorship and guidance to junior developers, promoting high standards of code quality and best practices. Conducted thorough regression testing for all deployments to ensure consistent performance, reliability, and system stability.'
     },
     {
         id: 3,
@@ -46,7 +46,7 @@ export const history = [
         start_date: '2020-05-01T00:00:00',
         end_date: '2022-01-01T00:00:00',
         description:
-            'I am continuing my adventure with Nobal Technologies as a contractor in order to build multiple mobile directed Vue.js apps. The ION CMS is a mobile web application designed to help clients get set up with their brand new iMirror, connect their Shopify account and customize their iMirrors theme. VTO users is another web application used to view and manage the users 3D avatars. I have also continued my work with the CMS.'
+            'Continued my adventure with Nobal Technologies as a part-time contractor in order to build multiple mobile directed Vue.js apps. The ION CMS is a mobile web application designed to help clients get set up with their brand new iMirror, connect their Shopify account and customize their iMirrors theme. VTO users is another web application used to view and manage the users 3D avatars. I have also continued my work with the CMS.'
     },
     {
         id: 2,
@@ -58,7 +58,7 @@ export const history = [
         start_date: '2019-05-01T00:00:00',
         end_date: '2020-05-01T00:00:00',
         description:
-            'Taken lead on the complete rebuild and redesign of Nobal’s CMS (Content Management System) in order to provide both developers and clients with the most seamless experience for maintaining and working with Nobal’s iMirror. Working as a Full Stack software developer on the Web Development team. As early as the second week, tasks included deciding which frameworks to use and creating complicated abstract systems components for the site to be built off.'
+            'Led the full refactor of the primary web application while driving the development of new applications from the ground up. Collaborated closely with a graphic designer to deliver mobile-first, elegant, and user-friendly interfaces that enhanced the overall user experience. Developed custom features and integrated third-party services, including Google APIs and Shopify, to expand functionality and improve system capabilities. Beginning in an internship role, quickly acquired and applied new technical skills and industry best practices, demonstrating strong adaptability and a commitment to continuous learning.'
     },
     {
         id: 1,

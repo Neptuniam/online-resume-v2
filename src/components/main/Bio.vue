@@ -9,19 +9,23 @@
             />
 
             <div class="text-body">
-                Hi! I'm Liam, a member of the Univeristy of Guelph alumni and a passionate web developer.
+                Hi! I'm Liam, a member of the Univeristy of Guelph alumni, a passionate web developer, and proud new
+                father.
 
                 <div>
                     Over the years I have spent many hours expanding on my knowledge and skills as a programmer which is
                     showcased down in the
                     <a href="#projects"><i>Projects</i></a>
-                    section. My main focus has been on web development specializing in VueJS while also gaining
-                    extensive experience with frameworks such as Laravel and Flutter.
+                    section.
+                    <br />
+                    My main focus has been on web development specializing in VueJS while also gaining extensive
+                    experience with frameworks such as Laravel and Flutter.
                 </div>
 
-                When I'm not taking on exciting new programming projects I enjoy playing video games, following F1,
-                hitting the gym, collecting watches, training my dog Harvard in competitive scent detection and spending
-                time with my family.
+                When I'm not taking on exciting new programming projects I enjoy gaming, following F1, hitting the gym,
+                <br />
+                collecting watches, training my dog Harvard in competitive scent detection and spending time with my
+                family.
             </div>
 
             <div id="age">Liam Andrew Jones, {{ age }}</div>
@@ -52,7 +56,7 @@ img {
 }
 
 .text-body div {
-    margin: 10px 0px;
+    margin: 20px 0px;
 }
 
 #age,

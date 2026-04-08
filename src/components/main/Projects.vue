@@ -172,7 +172,7 @@ export default {
                 { title: 'Created At', value: 'created_at' },
                 { title: 'Last Updated', value: 'updated_at' },
                 { title: 'Name', value: 'name' },
-                { title: 'Main Language', value: 'language' }
+                { title: 'Main Language', value: 'type' }
             ]
         };
     },
@@ -240,8 +240,6 @@ export default {
                     count: _typeMap[_type]
                 }))
             ].sort((a, b) => b.count - a.count);
-            console.log('projects', this.projects);
-            console.log('registeredProjectTypes', this.registeredProjectTypes);
         });
     }
 };

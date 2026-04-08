@@ -25,15 +25,19 @@
 
     <i
         v-show="showUpArrow"
-        class="scroll-arrow-indicator fas fa-chevron-up clickable noselect"
+        class="scroll-arrow-indicator chevron-up clickable noselect"
         @click="jumpTo(-1)"
-    />
+    >
+        &#x2303;
+    </i>
 
     <i
-        class="scroll-arrow-indicator fas fa-chevron-down clickable noselect"
+        class="scroll-arrow-indicator chevron-down clickable noselect"
         :class="{ bounce: doBounce }"
         @click="jumpTo(1)"
-    />
+    >
+        &#x2303;
+    </i>
 </template>
 
 <script>
@@ -134,8 +138,10 @@ export default {
     position: fixed;
 
     font-size: 32px;
+    width: 32px;
+    height: 32px;
     text-align: center;
-    color: #8b8b8b;
+    color: #8b8b8b !important;
 
     transition: all 0.2s ease-in-out;
 }
@@ -161,18 +167,19 @@ export default {
         opacity: 1;
     }
     40% {
-        transform: translateY(-30px);
+        transform: translateY(30px);
     }
     60% {
-        transform: translateY(-15px);
+        transform: translateY(15px);
     }
 }
 
-.fa-chevron-up {
+.chevron-up {
     top: 10px;
 }
-.fa-chevron-down {
-    bottom: 10px;
+.chevron-down {
+    bottom: 5px;
+    rotate: 180deg;
 }
 .bounce {
     animation: bounceIn 2s infinite 2s;

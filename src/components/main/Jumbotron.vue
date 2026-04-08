@@ -14,9 +14,10 @@
                 <div class="col-sm-12 col-3">
                     <router-link
                         to="/resume"
+                        target="_blank"
                         class="jumbotron-button text-body"
                     >
-                        <i class="fas fa-file-invoice"></i>
+                        <i class="fas fa-file-alt"></i>
                         Resume
                     </router-link>
                 </div>
@@ -53,6 +54,13 @@
                     </a>
                 </div>
             </div>
+
+            <div
+                v-if="employmentSeakingStatus"
+                id="employment-seaking-status"
+            >
+                {{ employmentSeakingStatus }}
+            </div>
         </div>
     </div>
 </template>
@@ -75,6 +83,10 @@ const QUOTE_BOARD_STRINGS = [
 ];
 
 export default {
+    data: () => ({
+        employmentSeakingStatus: 'Currently Seaking New Opportunities!'
+    }),
+
     mounted() {
         new Typed('#quote-board', {
             strings: QUOTE_BOARD_STRINGS,
@@ -99,6 +111,8 @@ export default {
     color: white;
 }
 .parallax-container-overlay {
+    position: relative;
+
     background-color: rgba(62, 69, 81, 0.6);
     height: 100%;
     width: 100%;
@@ -107,6 +121,36 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@keyframes bounce {
+    0% {
+        opacity: 0;
+        /* Start far away to delay it's arrival so users can load the page */
+        transform: translateY(-200vh);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-100vh);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    90% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+#employment-seaking-status {
+    position: absolute;
+    bottom: 50px;
+
+    font-size: 20px;
+
+    animation: bounce 3.5s;
 }
 
 #name {

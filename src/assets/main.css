@@ -45,11 +45,22 @@ html {
 }
 
 #main-container,
-.section:nth-child(odd),
+.section,
+.section-header,
+.section-title,
+#age,
+#location,
+i.fas,
 .page-footer,
 .page-footer .copy-right-row {
-    transition: all 0.75s ease-in-out;
+    transition: all 0.75s ease-in-out !important;
 }
+/* * {
+    transition:
+        background-color 0.75s ease-in-out,
+        background 0.75s ease-in-out,
+        color 0.75s ease-in-out !important;
+} */
 
 .text-title {
     font-size: var(--text-title-size);
