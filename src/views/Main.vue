@@ -25,18 +25,18 @@
 
     <i
         v-show="showUpArrow"
-        class="scroll-arrow-indicator chevron-up clickable noselect"
+        class="scroll-arrow-indicator chevron-up material-icons clickable noselect"
         @click="jumpTo(-1)"
     >
-        &#x2303;
+        chevron_right
     </i>
 
     <i
-        class="scroll-arrow-indicator chevron-down clickable noselect"
+        class="scroll-arrow-indicator chevron-down material-icons clickable noselect"
         :class="{ bounce: doBounce }"
         @click="jumpTo(1)"
     >
-        &#x2303;
+        chevron_right
     </i>
 </template>
 
@@ -138,8 +138,6 @@ export default {
     position: fixed;
 
     font-size: 32px;
-    width: 32px;
-    height: 32px;
     text-align: center;
     color: #8b8b8b !important;
 
@@ -154,6 +152,7 @@ export default {
     bottom: 15px;
 }
 .scroll-arrow-indicator {
+    font-size: 50px;
     right: 15px;
 }
 
@@ -176,10 +175,11 @@ export default {
 
 .chevron-up {
     top: 10px;
+    rotate: -90deg;
 }
 .chevron-down {
     bottom: 5px;
-    rotate: 180deg;
+    rotate: 90deg;
 }
 .bounce {
     animation: bounceIn 2s infinite 2s;

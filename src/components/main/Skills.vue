@@ -7,7 +7,7 @@
 
             <div class="row text-center">
                 <div class="col-md-12 col-4">
-                    <i class="fas fa-american-sign-language-interpreting red-text section-content-spacing"></i>
+                    <i class="material-icons red-text section-content-spacing">sign_language</i>
                     <div class="section-title text-title">Languages</div>
 
                     <p class="text-body">
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="col-md-12 col-4">
-                    <i class="fas fa-book cyan-text section-content-spacing"></i>
+                    <i class="material-icons cyan-text section-content-spacing">menu_book</i>
                     <div class="section-title text-title">Areas of Focus</div>
 
                     <ul class="aof-left text-body">
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="col-md-12 col-4">
-                    <i class="fas fa-code orange-text section-content-spacing"></i>
+                    <i class="material-icons orange-text section-content-spacing">code</i>
                     <div class="section-title text-title">Frameworks and Libraries</div>
 
                     <p class="text-body">
@@ -69,8 +69,8 @@ export default {};
 </script>
 
 <style scoped>
-i.fas {
-    font-size: calc(var(--text-body-size) * 2);
+.material-icons {
+    font-size: calc(var(--text-body-size) * 3);
 }
 .section-title {
     color: var(--text-color-section-title);

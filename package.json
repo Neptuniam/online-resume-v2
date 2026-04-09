@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "axios": "^1.13.2",
+        "material-icons": "^1.13.14",
         "typed.js": "^2.1.0",
         "vue": "^3.5.22",
         "vue-router": "^4.6.3"
