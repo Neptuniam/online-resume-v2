@@ -17,6 +17,7 @@
     </div>
 
     <i
+        v-show="showExtraOptions"
         id="dark-mode-toggle"
         class="clickable noselect"
         :class="isDarkMode ? 'fas fa-moon' : 'far fa-sun'"
@@ -24,7 +25,7 @@
     />
 
     <i
-        v-show="showUpArrow"
+        v-show="showExtraOptions"
         class="scroll-arrow-indicator chevron-up material-icons clickable noselect"
         @click="jumpTo(-1)"
     >
@@ -33,7 +34,7 @@
 
     <i
         class="scroll-arrow-indicator chevron-down material-icons clickable noselect"
-        :class="{ bounce: doBounce }"
+        :class="{ bounce: doBounce, 'center-chevron-right': showExtraOptions }"
         @click="jumpTo(1)"
     >
         chevron_right
@@ -62,17 +63,17 @@ export default {
     data() {
         return {
             isDarkMode: true,
-            showUpArrow: false,
+            showExtraOptions: false,
             doBounce: true
         };
     },
 
     methods: {
         getElementOffsetFromTop: function (el) {
-            return window.pageYOffset + el.getBoundingClientRect().top;
+            return window.pageYOffset + el.getBoundingClientRect().top - 70;
         },
         getElementOffsetFromBottom: function (el) {
-            return window.pageYOffset + el.getBoundingClientRect().bottom;
+            return window.pageYOffset + el.getBoundingClientRect().bottom - 70;
         },
 
         areViewingHistory: function () {
@@ -125,7 +126,7 @@ export default {
         this.isDarkMode = clientTime < 6 || clientTime >= 18;
 
         document.addEventListener('scroll', () => {
-            this.showUpArrow = window.scrollY >= window.innerHeight * 0.9;
+            this.showExtraOptions = window.scrollY >= window.innerHeight * 0.6;
             this.doBounce = window.scrollY <= 50;
         });
     }
@@ -148,8 +149,8 @@ export default {
     color: #717171;
 }
 #dark-mode-toggle {
-    left: 15px;
-    bottom: 15px;
+    top: calc(50vh - 16px);
+    right: 24px;
 }
 .scroll-arrow-indicator {
     font-size: 50px;
@@ -162,24 +163,27 @@ export default {
     50%,
     80%,
     100% {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
     }
     40% {
-        transform: translateY(30px);
+        transform: translateX(-30px);
     }
     60% {
-        transform: translateY(15px);
+        transform: translateX(-15px);
     }
 }
 
 .chevron-up {
-    top: 10px;
+    top: calc(50vh - 82px);
     rotate: -90deg;
 }
 .chevron-down {
     bottom: 5px;
     rotate: 90deg;
+}
+.chevron-down.center-chevron-right {
+    bottom: calc(50vh - 82px);
 }
 .bounce {
     animation: bounceIn 2s infinite 2s;

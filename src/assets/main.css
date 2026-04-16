@@ -6,6 +6,8 @@ html {
 
     --text-section-title-size: calc(26px * 1.6);
     --text-section-sub-size: 26px;
+
+    overflow-x: hidden;
 }
 
 #main-container {
@@ -221,7 +223,7 @@ a:hover {
 }
 .section > div {
     width: 1400px;
-    max-width: calc(100vw - 100px);
+    max-width: calc(100vw - 110px);
     padding: 70px 0px;
     margin: auto;
 }
