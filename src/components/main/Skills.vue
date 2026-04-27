@@ -1,5 +1,8 @@
 <template>
-    <div class="section">
+    <div
+        id="skills"
+        class="section"
+    >
         <div>
             <div class="section-header">Skills</div>
 

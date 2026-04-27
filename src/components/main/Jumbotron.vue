@@ -1,5 +1,8 @@
 <template>
-    <div class="parallax-container">
+    <div
+        id="home"
+        class="parallax-container"
+    >
         <div class="parallax-container-overlay">
             <div id="name">Liam A. Jones</div>
 

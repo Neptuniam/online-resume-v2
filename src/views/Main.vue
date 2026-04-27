@@ -1,44 +1,41 @@
 <template>
-    <div
-        id="main-container"
-        :class="{ 'dark-mode': isDarkMode }"
-    >
-        <jumbotron />
+    <div :class="{ 'dark-mode': isDarkMode }">
+        <div id="main-container">
+            <jumbotron />
 
-        <bio />
+            <bio />
 
-        <skills />
+            <skills />
 
-        <work-history ref="workHistory" />
+            <work-history ref="workHistory" />
 
-        <projects />
+            <projects />
 
-        <page-footer />
+            <page-footer />
+        </div>
+
+        <navbar
+            v-if="showExtraOptions"
+            ref="navbar"
+            v-model:isDarkMode="isDarkMode"
+        />
+
+        <i
+            v-show="showExtraOptions"
+            class="scroll-arrow-indicator chevron-up material-icons clickable noselect"
+            @click="jumpTo(-1)"
+        >
+            chevron_right
+        </i>
+
+        <i
+            class="scroll-arrow-indicator chevron-down material-icons clickable noselect"
+            :class="{ bounce: doBounce, 'center-chevron-right': showExtraOptions }"
+            @click="jumpTo(1)"
+        >
+            chevron_right
+        </i>
     </div>
-
-    <i
-        v-show="showExtraOptions"
-        id="dark-mode-toggle"
-        class="clickable noselect"
-        :class="isDarkMode ? 'fas fa-moon' : 'far fa-sun'"
-        @click="isDarkMode = !isDarkMode"
-    />
-
-    <i
-        v-show="showExtraOptions"
-        class="scroll-arrow-indicator chevron-up material-icons clickable noselect"
-        @click="jumpTo(-1)"
-    >
-        chevron_right
-    </i>
-
-    <i
-        class="scroll-arrow-indicator chevron-down material-icons clickable noselect"
-        :class="{ bounce: doBounce, 'center-chevron-right': showExtraOptions }"
-        @click="jumpTo(1)"
-    >
-        chevron_right
-    </i>
 </template>
 
 <script>
@@ -48,6 +45,7 @@ import WorkHistory from '../components/main/WorkHistory.vue';
 import Skills from '../components/main/Skills.vue';
 import Projects from '../components/main/Projects.vue';
 
+import Navbar from '../components/main/Navbar.vue';
 import PageFooter from '../components/main/PageFooter.vue';
 
 export default {
@@ -57,6 +55,7 @@ export default {
         WorkHistory,
         Skills,
         Projects,
+        Navbar,
         PageFooter
     },
 
@@ -122,39 +121,37 @@ export default {
 
     mounted() {
         // If early or late in the day, default to the dark theme
-        const clientTime = new Date().getHours();
-        this.isDarkMode = clientTime < 6 || clientTime >= 18;
+        // TEMP: I just prefer darkmode
+        // const clientTime = new Date().getHours();
+        // this.isDarkMode = clientTime < 9 || clientTime >= 17;
 
         document.addEventListener('scroll', () => {
             this.showExtraOptions = window.scrollY >= window.innerHeight * 0.6;
             this.doBounce = window.scrollY <= 50;
+        });
+
+        document.getElementById('main-container').addEventListener('click', () => {
+            if (this.$refs?.navbar?.showNavbar) {
+                this.$refs.navbar.showNavbar = false;
+            }
         });
     }
 };
 </script>
 
 <style scoped>
-#dark-mode-toggle,
 .scroll-arrow-indicator {
     position: fixed;
+    right: 15px;
 
-    font-size: 32px;
+    font-size: 50px;
     text-align: center;
     color: #8b8b8b !important;
 
     transition: all 0.2s ease-in-out;
 }
-#dark-mode-toggle:hover,
 .scroll-arrow-indicator:hover {
     color: #717171;
-}
-#dark-mode-toggle {
-    top: calc(50vh - 16px);
-    right: 24px;
-}
-.scroll-arrow-indicator {
-    font-size: 50px;
-    right: 15px;
 }
 
 @keyframes bounceIn {
@@ -175,7 +172,7 @@ export default {
 }
 
 .chevron-up {
-    top: calc(50vh - 82px);
+    top: calc(50vh - 64px);
     rotate: -90deg;
 }
 .chevron-down {
@@ -183,7 +180,7 @@ export default {
     rotate: 90deg;
 }
 .chevron-down.center-chevron-right {
-    bottom: calc(50vh - 82px);
+    bottom: calc(50vh - 64px);
 }
 .bounce {
     animation: bounceIn 2s infinite 2s;

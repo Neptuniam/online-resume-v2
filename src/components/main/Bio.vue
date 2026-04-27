@@ -1,5 +1,8 @@
 <template>
-    <div class="section text-center">
+    <div
+        id="bio"
+        class="section text-center"
+    >
         <div>
             <div class="section-header">About Me</div>
 

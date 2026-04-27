@@ -3,6 +3,7 @@
 html {
     --text-title-size: calc(20px * 1.6);
     --text-body-size: 20px;
+    --text-sub-body-size: 15px;
 
     --text-section-title-size: calc(26px * 1.6);
     --text-section-sub-size: 26px;
@@ -10,7 +11,7 @@ html {
     overflow-x: hidden;
 }
 
-#main-container {
+html {
     /* Light mode colour variables */
     --text-color-normal: rgb(72, 72, 72);
     --text-color-section-header: black;
@@ -21,10 +22,12 @@ html {
     --background-color-main: white;
     --background-color-odd-section: rgba(217, 217, 217, 0.4);
 
+    --background-color-navbar: rgb(245, 245, 245);
+
     --background-color-footer: #45526e;
     --background-color-footer-copy-right: #0003;
 }
-#main-container.dark-mode {
+html .dark-mode {
     /* Dark mode colour variables */
     --text-color-normal: #eae4e4;
     --text-color-section-header: #f6f3f3;
@@ -34,6 +37,8 @@ html {
 
     --background-color-main: #12131a;
     --background-color-odd-section: #1e1f28;
+
+    --background-color-navbar: #2c2e3c;
 
     --background-color-footer: #3a3c4b;
     --background-color-footer-copy-right: #2c2e3c;
